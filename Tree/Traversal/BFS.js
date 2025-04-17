@@ -1,3 +1,19 @@
+//Algorithm of BFS
+//1 Create a queue (FIFO – First In First Out)
+
+//2 Enqueue the root node
+
+//3 While the queue is not empty:
+
+    // Dequeue a node from the front of the queue
+
+    // Visit (print) that node's value
+
+    // If the node has a left child, enqueue it
+
+    // If the node has a right child, enqueue it
+
+
 class Node{
     constructor(value){
         this.value = value
