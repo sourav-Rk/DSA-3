@@ -1,3 +1,17 @@
+// Deletion of node 
+
+// There are three situtions
+// 1. node doesnt have any child - simply remove the pointer of immediate successor node
+// 2. node have one child - attach the immediate predecessor and successor node 
+// 3. node have two child - this situtation have two ways
+
+// 3.1 inorder predecessor
+// replace the internal node with the inorder predecessor that is the largest value in the left branch
+
+// 3.2 inorder successor
+// replace the internal node with the inorder successor that is the smallest value in the right branch
+
+
 class Node {
     constructor(value) {
       this.value = value;
@@ -92,7 +106,7 @@ class Node {
             root.value = this.min(root.right)
             root.right = this.deleteNode(root.right,root.value)
         }
-        return null
+        return root
     }
   
     isEmpty() {
