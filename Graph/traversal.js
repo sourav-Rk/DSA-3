@@ -37,4 +37,20 @@ class Graph {
         }
         console.log(visited)
     }
+
+    dfsTraversal(start){
+        const stack = [start]
+        const visited = new Set()
+        visited.add(start)
+        while(stack.length){
+            const currVertex = stack.pop()
+            for(let adjacentVertex of this.adjacencyList[currVertex]){
+                if(!visited.has(adjacentVertex) && !stack.includes(adjacentVertex)){
+                    stack.push(adjacentVertex)
+                }
+            }
+            visited.add(currVertex)
+        }
+        console.log(visited)
+    }
 }
