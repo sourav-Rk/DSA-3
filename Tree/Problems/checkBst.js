@@ -49,7 +49,7 @@ class Node {
     }
 
     isBST(){
-        const stack = [{node : node.value, min : -Infinity, max : Infinity}]
+        const stack = [{node : this.root, min : -Infinity, max : Infinity}]
 
         while(stack.length){
             const{node,min,max} = stack.pop()
