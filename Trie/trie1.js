@@ -18,6 +18,7 @@ class Trie {
             }
             node = node.children[char]
         }
+        node.isEndOfWord = true
     }
 
     search(word){
