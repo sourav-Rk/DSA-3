@@ -5,3 +5,30 @@ function findHeight(node){
     let right = findHeight(node.right)
     return Math.max(left,right) + 1
 }
+
+//depth of a specifin node
+function findDepth(root,value){
+    let depth = 0;
+    while(root !== null){
+        if(root.value === value) return depth;
+        else if(value < root.value) root = root.left;
+        else root = root.right;  
+    }
+}
+
+//function to clone a bst
+class Node{
+    constructor(value){
+        this.value = value;
+        this.right = null;
+        this.left = null;
+    }
+}
+
+function clone(root){
+    if(root === null) return null;
+    const newNode = new Node(value);
+    const left = clone(root.left);
+    const right = clone(root.right);
+    return newNode
+}
