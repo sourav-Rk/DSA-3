@@ -53,4 +53,37 @@ class Graph {
         }
         console.log(visited)
     }
+
+    hasCycle(){
+        const visited = new Set();
+
+        const dfs = (node,parent) =>{
+            visited.add(node);
+
+            for(let neighbour of this.adjacencyList[node]){
+                if(!visited.has(neighbour)){
+                    if(dfs(neighbour,node)) return true
+                }else if(neighbour !== parent) return true;
+            }
+            return false;
+        }
+
+        for(let vertex in this.adjacencyList){
+            if(!visited.has(vertex)){
+                if(dfs(vertex,null)) return true
+            }
+        }
+
+        return false;
+    }
 }
+
+const graph = new Graph();
+graph.addVertex("A");
+graph.addVertex("B");
+graph.addVertex("C");
+graph.addEdge("A","B");
+graph.addEdge("B","C");
+graph.addEdge("C","A");
+
+console.log(graph.hasCycle()); // true
