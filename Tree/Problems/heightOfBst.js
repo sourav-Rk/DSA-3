@@ -28,7 +28,7 @@ class Node{
 function clone(root){
     if(root === null) return null;
     const newNode = new Node(value);
-    const left = clone(root.left);
-    const right = clone(root.right);
+    newNode.left = clone(root.left);
+    newNode.right = clone(root.right);
     return newNode
 }
