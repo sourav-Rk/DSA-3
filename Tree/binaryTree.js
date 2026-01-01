@@ -52,7 +52,7 @@ class BinaryTree {
     if (
       this.getPath(root.left, value, path) ||
       this.getPath(root.right, value, path)
-    ) { 
+    ) {
       return true;
     }
 
@@ -212,7 +212,7 @@ class BinaryTree {
     let seenNull = false;
 
     while (queue.length) {
-      const curr = queue.shift(); 
+      const curr = queue.shift();
 
       if (curr === null) {
         seenNull = true;
@@ -266,6 +266,24 @@ class BinaryTree {
     storeInorder(this.root);
     values.sort((a, b) => a - b);
     restore(this.root);
+  }
+
+  isBalanced(root) {
+    function checkHeight(root) {
+      if (!root) return 0;
+
+      const left = checkHeight(root.left);
+      if (left === -1) return -1;
+
+      const right = checkHeight(root.right);
+      if (right === -1) return -1;
+
+      if (Math.abs(left - right) > 1) return -1;
+
+      return Math.max(left, right) + 1;
+    }
+
+    return checkHeight(root) !== -1;
   }
 }
 
